@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* *은 모든걸 포함 (모든곳에 마진0,패딩0 설정*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+      .clean {
+        height: 60px;
+      }
+      .apple {
+        background: rgb(0, 0, 0);
+      }
+      .apple_1 {
+        color: white;
+        font-size: 24px;
+        margin: 10px;
+      }
+      /* text를 왼쪽에 붙이고 , padding 거리를 왼쪽,아래 다 0으로만듦*/
+      .apple_2 {
+        color: orange;
+        font-size: 8px;
+        text-align: left;
+        line-height: 20px;
+        padding-left: 0px;
+        padding-bottom: 0px;
+      }
+      .talk {
+        background: black;
+        color: white;
+        font-size: 8px;
+        text-align: justify;
+        line-height: 25px;
+        padding-left: 0px;
+      }
+      /* text 위치는 중앙*/
+      .desc {
+        color: red;
+        text-align: center;
+        list-style-position: inside;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .order {
+        list-style: none;
+        font-size: 12px;
+        text-align: center;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <fieldset style="background-color: rgb(0, 0, 0);">
+        <div class="apple">
+          <p class="clean">&nbsp;</p>
+          <p class="apple_1">가정용 꿀사과</p>
+          <p class="apple_2">
+            흠집이 있고 약간은 못생겼지만 맛과 영양은 그대로입니다.<br />
+            질좋은 사과를 저렴하게 즐겨보세요
+          </p>
+        </div>
+      </fieldset>
+      <fieldset style="background-color: rgb(0, 0, 0);">
+        <div class="talk">확인하세요</div>
+      </fieldset>
+      <fieldset>
+        <div>
+          <nav>
+            <ul>
+              <li class="desc">주문 및 배송</li>
+            </ul>
+            <ul class="order">
+              <span style="color: blue">오후 2시 이전 </span>
+              <span>주문건은 당일 발송합니다</span>
+              <li>2시 이후 주문건은 다음날 발송합니다(주말제외)</li>
+            </ul>
+          </nav>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div>
+          <nav>
+            <ul>
+              <li class="desc">교환 및 반품</li>
+            </ul>
+            <ul class="order">
+              <span> 불만족시</span>
+              <span style="color: blue">100% 환불 </span>
+              <span>해 드립니다</span>
+              <li>고객센터로 전화주세요</li>
+            </ul>
+          </nav>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div>
+          <nav>
+            <ul>
+              <li class="desc">고객센터</li>
+            </ul>
+            <ul class="order">
+              <li>0000-0000</li>
+              <li style="font-weight: 400">상담시간 : 오전9시 ~ 오후6시</li>
+            </ul>
+          </nav>
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block-span { display: block; background: yellow;}
+        .inline-p { display: inline; border: 1px solid black;}
+    </style>
+</head>
+<body>
+    <h1 style="color: green;">블록 레벨 요소</h1>
+    <p> 단락 태그도 블록입니다.</p>
+    <!-- p 가 인라인이 됨 -> 인라인 span 2개 사이에 같이 인라인으로 넣어짐-->
+    <span>인라인요소 1</span>
+    <p class="inline-p"> 인라인이 된 블록 요소</p>
+    <span>인라인요소 2</span>
+    <!-- 인라인 요소인 span이 블록이 됨 -> 연달아 span으로 인라인이 아닌
+         하나의 블록으로 바뀜-->
+    <span class="block-span"> 블록이 된 인라인 요소</span>
+    <span> 인라인 요소 3</span>
+    <p class="inline-p"> 인라인이 된 블록 요소</p>
+</body>
+</html>

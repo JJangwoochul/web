@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>스핀박스,슬라이더 바,캘린더UI</title>
+  </head>
+
+  <body>
+    <form action="regist.jsp" method="post" name="number07_form">
+      <!-- 숫자입력 가능한 number타입 입력창 우측에 스핀박스(화살표)생성-->
+      <!-- min , max 로 최솟값 , 최대값 지정 , step 으로 화살표 클릭시 증가,감소 단위-->
+      <input type="number" min="1" max="31" step="1" />
+      <!-- range 타입 슬라이더 바 생성 , 막대를 움직여서 최소1~최대10까지 움직임-->
+      <!-- value 5로 5에서 시작 -->
+      <input type="range" min="1" max="10" value="5" />
+      <!-- 연,월,일 입력,선택 가능한 캘린더 UI 제공-->
+      <input type="date" />
+      <!-- 연,월 입력,선택 가능한 캘린더 UI 제공-->
+      <input type="month" />
+      <!-- color 타입 -> 색상 선택 가능-->
+      <input type="color" value="#00ff00" />
+    </form>
+  </body>
+</html>

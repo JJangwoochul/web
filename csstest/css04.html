@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- !important는 우선순위 인라인 태그로도 못바꿈-->
+    <style>
+        .alert {color: red !important;}
+        #main {color: aqua;}
+        .text {color: black;}
+    </style>
+</head>
+<body>
+    <p class="alert" style="color: blue;">빨간색 (important 강제)</p>
+    <p id="main" class="text">아쿠아 (id와 class중 id가 우선)</p>
+    <div style="color: green;">
+        <p>부모를 따라 초록색이 됨</p>
+    </div>
+</body>
+</html>

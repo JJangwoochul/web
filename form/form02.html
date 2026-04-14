@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>레이블로 입력창 설명</title>
+  </head>
+
+  <body>
+    <form
+      action="register.jsp"
+      method="post"
+      name="member02_form"
+      target="_blank"
+    >
+      <!-- 폼 안에 구역을 나눔 -->
+      <fieldset>
+        <!-- 제목지정-->
+        <legend>
+          개인 정보
+          <hr />
+          <!-- 폼에 이름을 지정-->
+          <label for="userid"> 아이디(6자 이상) </label>
+          <!-- text 타입으로 유저도 보이는 글자 입력 -->
+          <input type="text" id="userid" />
+          <!-- 클릭시 로그인 버튼 요소 -->
+          <input type="submit" value="로그인" />
+        </legend>
+      </fieldset>
+    </form>
+  </body>
+</html>

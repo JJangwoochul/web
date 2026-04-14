@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>메모장,데이터사용량,작업진행상태</title>
+  </head>
+
+  <body>
+    <form>
+      <fieldset>
+        <legend>메모작성</legend>
+        <label>
+          <!-- textarea 메모장기능 cols 글자수 기준의 가로 rows 세로줄-->
+          <textarea name="memo" cols="50" rows="5">
+            메모를 남겨주세요.
+            </textarea
+          >
+        </label>
+        <label>
+          <!-- 하드디스크 용량 -->
+          <meter min="0" max="100" value="64"></meter>
+        </label>
+        <label>
+          <!-- 작업 진행 상태 표시(다운로드) 바 형태로 표시-->
+          <progress value="50" max="100"></progress>
+        </label>
+      </fieldset>
+    </form>
+  </body>
+</html>

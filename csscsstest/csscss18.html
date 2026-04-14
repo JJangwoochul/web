@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "맑은 고딕", "고딕", "굴림";
+      }
+      section {
+        padding: 20px;
+        width: 600px;
+        margin: 20px auto;
+        border: 1px solid gray;
+        border-radius: 10px;
+      }
+      .multi {
+        /*column-width: 120px;    페이지 크기에 맞춰 문단을 120px로 고정*/
+        /*페이지가 커지면 문단의 수가 늘어남*/
+        column-count: 3; /* -> 페이지 크기에 상관없이 3문단 고정*/
+        column-rule: 2px dotted black;
+        text-align: justify;
+      }
+      
+      .multi h3 {
+        break-before: column;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>건강에 좋은 식품</h1>
+    </header>
+    <section>
+      <h2>슈퍼푸드</h2>
+      <div class="multi">
+        <div>
+          <h3>코코넛오일</h3>
+          <p>
+            식물성 식용유 중에서도 포화지방 함량이 낮은 올리브유(100g당 14g,
+            불포화지방 84g)와 비교해 보면 포화지방 함량이 상당히 높은 축에
+            속한다. 이 때문에 녹는점도 24°C로, 식물성 기름 중에선 높은 편이며,
+            여름 한철 동안 액체였다가도 가을만 돼도 응고되기 시작한다. 보습과
+            염증 방지에 효과가 좋으며 진통효과도 조금 있기 때문에 치질에도
+            상당히 효과가 좋아 치질 연고 대용으로 쓰기를 추천하는 의사들도 많다.
+            또한 유지력과 윤활력이 좋다.
+          </p>
+        </div>
+        <div>
+          <h3>블루베리</h3>
+          <p>
+            눈의 수정체가 혼탁해지는 백내장은 단백질에 당이 결합하여 눈의
+            단백질이 노화되기 때문에 일어난다. 안토시아닌 색소는 이러한 결합을
+            억제시키는 작용이 있다. 즉 블루베리가 백내장 예방에 유효한 것은
+            단백질의 노화를 억제시키기 때문이다. 특히 당뇨병에 기인한 망막염과
+            백내장의 예방에 유효하다.
+          </p>
+        </div>
+        <div>
+          <h3>아몬드</h3>
+          <p>
+            너무 많은 양을 섭취하면 청산 성분으로 인해 독성이 생기는
+            비터아몬드는 파티스리, 당과류에 아주 소량으로 사용되어 특유의 향을
+            더해준다. 아몬드는 지방(필수지방산)과 비타민E가 풍부하다.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

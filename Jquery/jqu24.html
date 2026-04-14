@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-size: 12px;
+      }
+      input {
+        vertical-align: middle;
+      }
+      #notice_wrap {
+        width: 300px;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        box-shadow: 0 0 8px #000;
+      }
+      .closeWrap {
+        background-color: #000;
+        color: #fff;
+        text-align: right;
+        padding: 5px 10px;
+      }
+      .closeWrap button {
+        margin-left: 20px;
+        cursor: pointer;
+      }
+    </style>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      $(function () {
+        if ($.cookie("popup") == "none") {
+          $("#notice_wrap").hide();
+        }
+        var $expChk = $("#expiresChk");
+        function closePop() {
+          if ($expChk.is(":checked")) {
+            $.cookie("popup", "none", { expires: 3, path: "/" });
+          }
+          $("#notice_wrap").fadeOut("fast");
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="notice_wrap">
+      <img src="../img/cat.jpg" alt="공지사항" />
+      <p class="closeWrap">
+        <input type="checkbox" name="expiresChk" id="expiresChk" />
+        <label for="expiresChk">3일 동안 이 창 열지않기</label>
+        <button class="closeBtn">닫기</button>
+      </p>
+    </div>
+  </body>
+</html>

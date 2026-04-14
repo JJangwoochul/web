@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>input태그 속성</title>
+  </head>
+
+  <body>
+    <form>
+      <fieldset>
+        <legend>회원가입</legend>
+        <label>
+          작성
+          <!-- autofocus 로딩 시 포커스-->
+          <!-- required 필수입력-->
+          <input type="text" autofocus required />
+        </label>
+        <br />
+        <label>
+          번호입력
+          <!-- placeholder 입력 힌트(연한 텍스트)-->
+          <input type="tel" placeholder="하이픈(-) 없이 입력" required />
+        </label>
+        <br />
+        <label>
+          <!-- readonly 읽기전용(수정불가) -->
+          <input type="text" value="admin" readonly />
+        </label>
+        <br />
+        <label>
+          이메일 입력
+          <input type="email" required />
+        </label>
+        <input type="submit" value="제출하기" />
+      </fieldset>
+    </form>
+  </body>
+</html>

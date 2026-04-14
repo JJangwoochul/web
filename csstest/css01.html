@@ -1,0 +1,32 @@
+<!-- !->엔터 기본구축 완료-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- head 에 style을 두면 태그작성-->
+    <!-- *은 전체 선택자 -> 모든 요소의 기본 여백을 지울 때 유용-->
+    <!-- p는 태그 선택자 body에 p 를 사용하면 이후 적용순서가 없으면 태그선택자-->
+    <!-- 내부 스타일 태그-->
+    <style>
+      h1 { color: aqua; }
+      * { margin: 0px; }
+      p { font-size: 14px; }
+      p {color: brown;}
+    </style>
+    <!-- css를 링크를통해 가져옴 (css폴더에서 style.css를 가져옴)-->
+    <!-- 적용 순서 css -> head(style)->바로 붙어있는 style-->
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- 인라인 스타일-->
+    <p style="color: blue">직접 지정한 파란색 글씨</p>
+    <h1 style="color: green">문서 내 일괄 적용</h1>
+    <h1>스타일css 파일 확인</h1>
+    <div>
+      <p>여백이 없고 14px인 단락입니다.</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*border이 5픽셀 , dashed 점선 , 텍스트가 보이는 안쪽부터 이미지 배치*/
+        .box{
+            width: 200px; padding: 20px; 
+            border: 5px dashed black;
+            background-image: url(../img/cat.jpg);
+            background-origin: content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        내용 영역에서 이미지가 시작됨
+    </div>
+    <p class="box">
+        내용 영역에서 이미지가 시작됨
+    </p>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>radio타입,checkbox타입</title>
+  </head>
+
+  <body>
+    <form action="Radio_checkbox" method="get" enctype="UTF-8">
+      <!-- 1번째 필드 생성-->
+      <fieldset>
+        <!-- 1번째 필드의 제목-->
+        <legend>신청과목</legend>
+        <p>이 달에 신청할 과목을 선택하세요(1과목만 가능)</p>
+        <!-- radio 타입으로 radio 타입의 label 중 1개만 선택가능-->
+        <label>
+          <input type="radio" name="subject" value="회화" />
+          회화
+        </label>
+        <label>
+          <input type="radio" name="subject" value="문법" />
+          문법
+        </label>
+        <label>
+          <input type="radio" name="subject" value="문법" />
+          문법
+        </label>
+      </fieldset>
+      <!-- 2번째 필드 생성-->
+      <fieldset>
+        <!-- 2번째 필드의 제목 -->
+        <legend>메일 수신</legend>
+        <p>메일로 받고 싶은 뉴스 주제를 선택해 주세요(복수 가능)</p>
+        <!-- checkbox 타입 , checkbox타입의 레이블을 선택 복수선택 가능-->
+        <label>
+          <input type="checkbox" name="mailing" value="해외 단신" />
+          해회 단신
+        </label>
+        <label>
+          <input type="checkbox" name="mailing" value="5분 회화" />
+          5분 회화
+        </label>
+        <label>
+          <input type="checkbox" name="mailing" value="모닝팝스" />
+          모닝팝스
+        </label>
+      </fieldset>
+      <!-- 신청하기 버튼 -->
+      <input type="submit" value="신청하기" />
+    </form>
+  </body>
+</html>

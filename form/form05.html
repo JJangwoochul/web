@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>url,tel,password,name,mail타입 생성</title>
+  </head>
+
+  <body>
+    <form action="register.jsp" method="post" name="member05_form">
+      <!-- 필드생성-->
+      <fieldset>
+        <!-- 필드 제목 생성-->
+        <legend>회원가입</legend>
+        <br />
+        <!-- 이름 입력 안내 글 작성-->
+        <label for="name_form">
+          이름:
+          <br />
+          <!-- text 타입으로 유저에게 보임-->
+          <input type="text" name="form_name" id="name" />
+        </label>
+        <br /><br />
+        <!-- 비밀번호 작성 안내 글 작성 -->
+        <label for="password_form">
+          패스워드:
+          <br />
+          <!-- password 타입으로 유저가 적은 비밀번호 -->
+          <input type="password" name="form_password" />
+        </label>
+        <br /><br />
+        <!-- 메일 작성 안내 글 작성-->
+        <label for="mail_form">
+          이메일:
+          <br />
+          <!-- 메일 작성 칸 생성 , email입력 -->
+          <input type="email" name="form_email" id="mail" />
+        </label>
+        <br /><br />
+        <!-- 전화번호 입력 안내 글 작성-->
+        <label for="number_form">
+          전화번호:
+          <br />
+          <!-- tel 타입으로 번호입력 가능(모바일은 필드 터치 시 숫자패드) -->
+          <input type="tel" name="form_phone" id="phone" />
+        </label>
+        <br /><br />
+        <!-- 주소 입력 안내 글 작성 -->
+        <label for="url_form">
+          주소:
+          <br />
+          <!-- url 타입으로 웹 주소 형식만 가능 (http:// or https://)-->
+          <input type="url" name="form_homepahe" id="homepage" />
+        </label>
+        <hr />
+        <!-- 가입하기 , 초기화  버튼 생성-->
+        <input type="submit" value="가입하기" />
+        <input type="submit" value="초기화" />
+      </fieldset>
+    </form>
+  </body>
+</html>

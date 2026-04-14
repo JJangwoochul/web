@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 그룹화 (코드가 간결해짐) h1,h2,class=title 을 한번에 묶음 -->
+    <!-- 따로 인라인 스타일의 태그가 아니면 동시적용-->
+    <style>
+      h1,
+      h2,
+      .title {
+        text-align: center;
+        color: blueviolet;
+      }
+      #style {
+        color: aqua;
+        font-size: 50px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>h1적용예시</h1>
+    <h2>h2적용예시</h2>
+    <!-- 인라인 태그만 따로 적용-->
+    <h3 style="color: yellow;">인라인 스타일 태그 확인</h3>
+    <p class="title">중앙 클래스</p>
+    <div id="style">
+      <p>확인용</p>
+    </div>
+  </body>
+</html>

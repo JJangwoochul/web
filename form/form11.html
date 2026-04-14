@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>데이터 나열,목록</title>
+  </head>
+
+  <body>
+    <form>
+      <fieldset>
+        <legend>데이터나열</legend>
+        <label>
+          학과선택
+          <!-- select 드롭다운 클릭시 옵션이 나옴 -->
+          <!-- label optgroup의 주제 , value 선택지 -->
+          <!-- selected 웹 실행시 기본값설정-->
+          <select id="class">
+            <optgroup label="공과대학">
+              <option value="archi">건축공학과</option>
+              <option value="comp" selected>컴퓨터공학과</option>
+            </optgroup>
+          </select>
+        </label>
+        <label>
+          브라우저
+          <!-- datalist 텍스트를 직접입력,자동완성 기능 -->
+          <!-- list와 id가 일치해야함-->
+          <input type="text" list="browsers" />
+          <datalist id="browsers">
+            <option value="Chrome"></option>
+            <option value="Safari"></option>
+            <option value="Edge"></option>
+          </datalist>
+        </label>
+      </fieldset>
+    </form>
+  </body>
+</html>

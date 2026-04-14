@@ -1,0 +1,30 @@
+@charset "utf-8" ;
+
+body {
+    font-family: "맑은 고딕","고딕","굴림";
+}
+#wrapper h1 {
+    color: darkblue;
+}
+nav.main-nav>ul {
+    border: 1px dotted black;
+}
+nav.main-nav li {
+    display: block;
+}
+nav.main-nav li a {
+    display: block;
+}
+h2+table {
+    width: 100%;
+}
+.apdf::before {
+    content: "[PDF]";
+    color: red;
+}
+.azip::after {
+    content: "(압축파일)";
+}
+p[title *= "internal"] {
+    background-color: yellowgreen;
+}

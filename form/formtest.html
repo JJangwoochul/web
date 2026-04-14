@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>종합 폼 테그 예시</title>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>개인정보</legend>
+        <label>
+          아이디(6자 이상) :
+          <input type="text" autofocus required />
+        </label>
+        <br /><br />
+        <label>
+          비밀번호 :
+          <input type="password" required autofocus />
+        </label>
+        <br /><br />
+        <label>
+          회원 등급 :
+          <input type="text" readonly value="일반" />
+        </label>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>연락처 정보</legend>
+        <label>
+          이메일 :
+          <input
+            type="email"
+            autofocus
+            required
+            placeholder="example@email.com"
+          />
+        </label>
+        <br /><br />
+        <label>
+          전화번호 :
+          <input type="tel" required placeholder="하이픈(-)없이 입력" />
+        </label>
+        <br /><br />
+        <label>
+          개인 홈페이지 :
+          <input type="url" autofocus required />
+        </label>
+        <br /><br />
+        <label>
+          관심사 검색:
+          <input type="search" />
+        </label>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>상세 설정</legend>
+        <label>
+          성별 :
+          <input type="radio" name="male" value="남성" />
+          남성
+          <input type="radio" name="male" value="여성" checked />
+          여성
+        </label>
+        <br /><br />
+        <label>
+          <input type="checkbox" name="mail" value="뉴스 메일 수신" checked />
+          뉴스 메일 수신
+        </label>
+        <br /><br />
+        <label>
+          연령대 (1~5) :
+          <input type="number" min="1" max="5" value="1" step="1" required />
+        </label>
+        <br /><br />
+        <label>
+          서비스 기대치 :
+          <input type="range" min="1" max="10" value="5" />
+        </label>
+        <br /><br />
+        <label>
+          생년월일 :
+          <input type="date" required />
+        </label>
+        <br /><br />
+        <label>
+          가입 희망 월 :
+          <input type="month" required />
+        </label>
+        <br /><br />
+        <label>
+          프로필 테마 색상 :
+          <input type="color" value="#00ff00" />
+        </label>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>추가 정보 및 파일</legend>
+        <label>
+          전공 선택 :
+          <select id="class">
+            <option value="comp">컴퓨터공학과</option>
+            <option value="achi">건축공학과</option>
+          </select>
+        </label>
+        <br /><br />
+        <label>
+          주 사용 브라우저 :
+          <input type="text" list="browsers" />
+          <datalist id="browsers">
+            <option value="Chrome"></option>
+            <option value="google"></option>
+          </datalist>
+        </label>
+        <br />
+        <p>
+          가입 인사:
+          <br />
+          <label>
+            <textarea name="memo" cols="50" rows="5">
+메모를 남겨주세요.</textarea
+            >
+          </label>ㄴㄴ
+        </p>
+        <label>
+          프로필 사진 첨부 :
+          <input type="file" />
+        </label>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>상태 표시 및 제출</legend>
+        <label>
+          프로필 완성도 :
+          <meter min="0" max="100" value="64"></meter>
+        </label>
+        <br /><br />
+        <label>
+          가입 진행률 :
+          <progress value="50" max="100"></progress>
+        </label>
+      </fieldset>
+    </form>
+  </body>
+</html>

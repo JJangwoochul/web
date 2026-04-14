@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* [속성] 선택자 herf 포함된것들 호출*/
+        /* a[href] {
+            background: yellow;
+        } */
+        /* [속성 = 값] 선택자 속성과 속성값이 일치하는걸 찾아 적용*/
+        /* a[target="_blank"] {
+            padding-right: 30px;
+            background-color: yellow;
+        } */
+        /* [속성~=값] 선택자 속성 값 중에서 포함한 요소를 찾아 전부 적용 */
+        /* a[class ~="button"] {
+            border: 2px solid black;
+        } */
+        /* [속성 *=값] 선택자 속성의 값이 일부가 일치하는 속성을 적용*/
+        /* href 안에 ww가 들어가는걸 적용*/
+        a[href *="ww"]{
+            background: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a>메인메뉴 : </a></li>
+        <li><a href="#" class="button">메뉴 1</a></li>
+        <li><a href="ww" class="flat button">메뉴 2</a></li>
+        <li><a href="#" target="_blank">메뉴 3</a></li>
+        <li><a href="wwwww" target="_blank">메뉴 4</a></li>
+        <li><a href="https://www.naver.com/" >메뉴 5</a></li>
+        <li><a href="https://www.google.com/?hl=ko" >메뉴 6</a></li>
+    </ul>
+</body>
+</html>

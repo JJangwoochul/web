@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin-top: 30px;
+        text-align: center;
+      }
+    </style>
+    <script>
+      var name = prompt("당신의 이름을 입력하세요.");
+      document.write("<h1>행운의 경품 추첨</h1><br>");
+      document.write("<b>안녕하세요," + name + "님!</b><br>");
+
+      var today = new Date();
+      var nowYear = today.getFullYear();
+      var nowMonth = today.getMonth() + 1;
+      var nowDate = today.getDate();
+
+      document.write(
+        "<p>오늘은 " +
+          nowYear +
+          "년 " +
+          nowMonth +
+          "월 " +
+          nowDate +
+          "일입니다.</p>"
+      );
+      document.write("<hr>");
+      var giftList = [
+        "MacBook Air",
+        "iPad Pro",
+        "에어팟 프로",
+        "스타벅스 커피",
+        "다음기회에...",
+      ];
+      document.write("<p><b>추첨 시스템 가동: <b> ");
+      for (var i = 1; i <= 3; i++) {
+        document.write(i + "... ");
+      }
+      document.write("완료!</p>");
+      var luckyNum = Math.floor(Math.random() * giftList.length);
+      var resultGift = giftList[luckyNum];
+
+      if (luckyNum === 4) {
+        document.write(
+          "<p class='result'>아쉽 결과는[" + resultGift + "] 입니다.</p>"
+        );
+      } else {
+        document.write(
+          "<p class='result'>축하 경품은[" + resultGift + "]입니다.</p>"
+        );
+      }
+      document.write("<hr>");
+      document.write(
+        "<p style='color:gray; font-size:12px;'>현재 접속 주소:" +
+          location.href +
+          "</p>"
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

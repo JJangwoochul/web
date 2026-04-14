@@ -1,0 +1,76 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#product-card {
+    width: 600px;
+    margin: 50px auto;
+    border: 1px ;
+    background: #eee;
+}
+.badge {
+    position: absolute;
+    background-color: red;
+    border-radius: 10px;
+    padding: 5px;
+    top: 10px;
+    right: 10px;
+    color: white;
+}
+.card-header {
+    background: #eee url(../img/keybord.jpg) no-repeat center /cover;
+    position: relative;
+    height: 300px;
+}
+.product-info {
+    float: left;
+    width: 60%;
+}
+.product-info p {
+    line-height: 30px;
+}
+.product-specs {
+    float: right;
+    width: 40%;
+    border: 1px;
+    padding: 10px;
+    background: gray;
+}
+.product-specs h3 {
+    border: 1px;
+    border-collapse: collapse;
+}
+
+.align-middle {
+    vertical-align:middle ;
+}
+
+.card-body {
+    padding: 40px;
+    clear: both;
+    border: 1px white;
+}
+.card-footer {
+    padding: 30px;
+    text-align: center;
+    clear: both;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table tr {
+    border: 1px;
+}
+td {
+padding: 10px;
+}
+button {
+    background-color: black;
+    color: white;
+    column-span: all;
+    padding: 10px;
+    vertical-align: middle;
+}

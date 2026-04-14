@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- 최신 표준 html5 문서-->
+<html lang="ko">
+  <!-- html의 언어는 korea-->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- utf-8 문자 인코딩-->
+    <title>객실예약</title>
+  </head>
+
+  <body>
+    <!-- 이미지 파일 첨부-->
+    <!-- 설명글을 붙일 대상 -->
+    <figure>
+      <!-- img 폴더에서 사진을 불러옴-->
+      <!-- alt 이미지가 나오지않을때 대신 나오는 문구 필수 -->
+      <img src="img/sweethouse.jpg" alt="숙소입니다." />
+      <!-- 설명글 -->
+      <figcaption>
+        <!-- 이탤릭체 -->
+        <em> * 당신의 완벽한 휴식을 위한 프리미엄 객실을 예약하세요. </em>
+      </figcaption>
+    </figure>
+    <!-- 예약 -->
+    <form>
+      <!-- 1번 필드-->
+      <fieldset>
+        <!-- 1번 필드 제목 -->
+        <legend>예약자 기본 정보</legend>
+        <br />
+        <!-- text 속성,readonly 읽기전용(value 내용 수정불가) -->
+        <label>
+          회원 ID
+          <input type="text" value="woochul" readonly />
+        </label>
+        <br /><br />
+        <!-- 예약자 성함 text,required로 필수입력,placeholder 안내문-->
+        <label>
+          예약자명
+          <input
+            type="text"
+            autofocus
+            required
+            placeholder="실명을 입력하세요"
+          />
+        </label>
+        <br /><br />
+        <label>
+          연락처
+          <input type="tel" autofocus required placeholder="010-0000-0000" />
+        </label>
+        <br /><br />
+        <label>
+          이메일
+          <input
+            type="email"
+            autofocus
+            required
+            placeholder="example@mail.com"
+          />
+        </label>
+        <br /><br />
+      </fieldset>
+      <!-- 2번 필드 -->
+      <fieldset>
+        <!-- 2번 필드 예약 정보-->
+        <legend>예약 상세 정보</legend>
+        <br />
+        <label>
+          체크인 날짜
+          <input type="date" required />
+        </label>
+        <br /><br />
+        <label>
+          객실 선택
+          <!-- select로 하나 고르기 -->
+          <select id="house">
+            <option value="오션뷰 스위트">오션뷰 스위트</option>
+            <option value="더블" selected>더블</option>
+            <option value="싱글">싱글</option>
+            <option value="트윈">트윈</option>
+          </select>
+        </label>
+        <br /><br />
+        <!-- number 타입 1씩 변경,시작숫자 2 , 필수입력-->
+        <label>
+          숙박 인원(최대 4인)
+          <input type="number" min="1" max="4" step="1" value="2" required />
+        </label>
+        <br /><br />
+      </fieldset>
+      <!-- 3번 필드-->
+      <fieldset>
+        <legend>추가 요청 및 옵션</legend>
+        <br />
+        <!-- radio 타입으로 둘중 하나 선택 , checked로 선택한상태-->
+        <label>
+          조식 서비스:
+          <input type="radio" name="brunch" value="포함" checked />
+          포함
+        </label>
+        <label>
+          <input type="radio" name="brunch" value="미포함" />
+          미포함
+        </label>
+        <br /><br />
+        <label>
+          추가 선택:
+          <!-- checkbox로 2개 이상 복수선택가능 , 선택x도 가능-->
+          <input type="checkbox" name="carsleep" value="픽업 서비스" />
+          픽업 서비스
+          <input type="checkbox" name="carsleep" value="레이트 체크아웃" />
+          레이트 체크아웃
+        </label>
+        <br />
+        <p>기타 요청사항</p>
+        <label>
+          <!-- textarea(메모) 가로50글자 세로5줄 -->
+          <!--textarea 메모안에 메모입력-->
+          <textarea
+            name="기타 요청사항"
+            cols="50"
+            rows="5"
+            placeholder="알러지 유무나 기타 요청 사항을 적어주세요."
+          ></textarea>
+        </label>
+      </fieldset>
+      <br />
+      <input type="submit" value="예약하기" />
+      <input type="reset" value="다시 쓰기" />
+    </form>
+  </body>
+</html>

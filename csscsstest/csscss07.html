@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c-box {
+            /* 박스 사이즈 -> 컨텐츠 기준 = 300 + 양쪽 패딩 + 양쪽 보더 = 380 */
+            /* 컨텐츠 박스 사이즈 = 300 */ 
+            box-sizing: content-box;
+            width: 300px; padding: 30px; border: 10px;
+            background-color: yellowgreen;
+        }
+        .b-box {
+            /* 박스 사이즈 -> 보더 기준 = 300 (사이즈 300안에 패딩30,보더10 )*/
+            /* 컨텐츠 박스 사이즈 = 220 */
+            box-sizing: border-box;
+            width: 300px; padding: 30px; border: 10px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="c-box">전체 가로 380px
+        <span>확인용</span>
+        <span>확인용</span>
+        <span>확인용</span>
+        <span>확인용</span>
+        <span>확인용</span>
+        <span>확인용</span>
+
+
+    </div>
+    <div class="b-box">전체 가로 300px
+        <span>확인용</span>
+        <span>확인용</span>
+        <span>확인용</span>
+        <span>확인용</span>
+        <span>확인용</span>
+        <span>확인용</span>
+        
+    </div>
+</body>
+</html>
