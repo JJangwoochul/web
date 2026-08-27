@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그린도서관 메인페이지</title>
+    <style>
+        /* 기본 스타일 초기화 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Pretendard', sans-serif; background-color: #f7f5ee; color: #333; }
+        ul, ol { list-style: none; }
+        a { text-decoration: none; color: inherit; }
+
+        /* 1. 헤더 영역 (Header) */
+        header {
+            height: 90px;
+            background-color: #e6e3d3;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            border-bottom: 1px solid #d1cdb8;
+        }
+        .header-left .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-img {
+            width: 45px; height: 45px;
+            background-image: url('logo.png');
+            background-size: contain; background-repeat: no-repeat; background-position: center;
+        }
+        .logo-text h1 { font-size: 1.6rem; color: #1e3f20; font-weight: bold; letter-spacing: -1px; }
+        .logo-text p { font-size: 0.75rem; color: #555; letter-spacing: 0.5px; margin-top: -2px; }
+
+        .header-right nav ul { display: flex; align-items: center; gap: 25px; }
+        .header-right nav ul li a { display: flex; align-items: center; gap: 6px; font-size: 1.05rem; font-weight: bold; color: #111; }
+        .header-right nav ul li a .icon { width: 18px; height: 18px; background-color: #888; display: inline-block; border-radius: 3px; }
+
+        /* 2. 바디 영역 (Body) - 상단 비주얼 및 검색 섹션 */
+        .hero-section {
+            height: 450px;
+            background-image: url('../img/forest.jpg');
+            background-size: cover; background-position: center;
+            display: flex; justify-content: center; align-items: center; position: relative;
+        }
+        .search-wrapper { width: 65%; max-width: 800px; position: relative; }
+        .search-input {
+            width: 100%; height: 65px; padding: 0 70px 0 30px; font-size: 1.2rem;
+            border: 4px solid #1e3f20; border-radius: 50px; outline: none; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .search-btn {
+            position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+            width: 45px; height: 45px; background-color: #1e3f20; border: none; border-radius: 50%; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .search-btn::before { content: '🔍'; color: #fff; font-size: 1.2rem; }
+
+        /* 2. 바디 영역 (Body) - 하단 4분할 카드 섹션 */
+        .contents-section {
+            padding: 40px 50px;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+            background-color: #f7f5ee;
+        }
+        .card {
+            background-color: #c9dfca;
+            border-radius: 20px; padding: 25px 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            min-height: 320px;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .card h2 { font-size: 1.3rem; color: #111; margin-bottom: 15px; font-weight: bold; }
+        .card.white-bg { background-color: #ffffff; }
+
+        /* 슬라이더 내부 컨테이너 (실제 움직이는 부분) */
+        .slider-container { width: 100%; overflow: hidden; position: relative; flex-grow: 1; }
+        .slider-track { display: flex; width: 300%; transition: transform 0.5s ease-in-out; }
+        .slide-page { width: 33.333%; flex-shrink: 0; }
+
+        /* 도서 리스트 스타일 */
+        .book-list { display: flex; gap: 10px; justify-content: space-between; }
+        .book-item { text-align: center; width: 30%; }
+        .book-img { 
+            width: 100%; height: 110px; background-image: url('book_cover.jpg');
+            background-size: cover; background-position: center; border-radius: 4px;
+            margin-bottom: 8px; box-shadow: 1px 2px 5px rgba(0,0,0,0.15);
+        }
+        .book-item p { font-size: 0.8rem; font-weight: bold; line-height: 1.2; }
+        .book-item span { font-size: 0.7rem; color: #666; display: block; margin-top: 2px; }
+
+        /* 텍스트 리스트 스타일 */
+        .text-list li { padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .event-list li { display: flex; align-items: center; gap: 15px; padding: 10px 0; }
+        .event-date { text-align: center; font-weight: bold; line-height: 1.1; }
+        .event-date .year-month { font-size: 0.75rem; color: #555; display: block; }
+        .event-date .day { font-size: 1.3rem; color: #111; }
+        .event-title { font-size: 0.95rem; font-weight: 500; }
+
+        /* 슬라이더 도트(점) 인디케이터 */
+        .dots { display: flex; justify-content: center; gap: 6px; margin-top: 15px; }
+        .dot { width: 6px; height: 6px; background-color: #999; border-radius: 50%; transition: background-color 0.3s; }
+        .dot.active { background-color: #333; width: 12px; border-radius: 3px; } /* 활성화 시 약간 길어지는 효과 */
+
+        /* 3. 푸터 영역 (Footer) */
+        footer {
+            background-color: #e6e3d3; padding: 30px 50px;
+            display: flex; justify-content: space-between; align-items: flex-end;
+            border-top: 1px solid #d1cdb8; font-size: 0.85rem; color: #555;
+        }
+        .footer-left h3 { font-size: 1rem; color: #333; margin-bottom: 8px; font-weight: bold; }
+        .footer-left p { line-height: 1.6; }
+        .footer-left .copyright { margin-top: 10px; color: #888; }
+        .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 15px; }
+        .footer-links { display: flex; gap: 15px; font-weight: bold; color: #333; }
+        .footer-logo { width: 40px; height: 40px; background-image: url('logo.png'); background-size: contain; background-repeat: no-repeat; background-position: center; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <div class="logo">
+                <div class="logo-img"></div>
+                <div class="logo-text"><h1>그린도서관</h1><p>GREEN FOREST LIBRARY</p></div>
+            </div>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="#"><span class="icon"></span>도서검색</a></li>
+                    <li><a href="#"><span class="icon"></span>대출현황</a></li>
+                    <li><a href="#"><span class="icon"></span>공지사항</a></li>
+                    <li><a href="#"><span class="icon"></span>이용안내</a></li>
+                    <li><a href="#"><span class="icon"></span>마이페이지</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <div class="search-wrapper">
+            <input type="text" class="search-input" placeholder="도서명, 저자, 주제어로 검색해보세요">
+            <button class="search-btn"></button>
+        </div>
+    </div>
+
+    <!-- 하단 콘텐츠 카드 (자동 슬라이더 구현) -->
+    <div class="contents-section">
+        
+        <!-- 카드 1: 금주의 추천도서 (슬라이더 적용) -->
+        <div class="card auto-slider" id="slider-recommend">
+            <h2>금주의 추천도서</h2>
+            <div class="slider-container">
+                <div class="slider-track">
+                    <!-- 1페이지 -->
+                    <div class="slide-page">
+                        <div class="book-list">
+                            <div class="book-item"><div class="book-img"></div><p>정원의 지...</p><span>특가 200원</span></div>
+                            <div class="book-item"><div class="book-img"></div><p>보물섬제...</p><span>특가 200원</span></div>
+                            <div class="book-item"><div class="book-img"></div><p>안아줘제...</p><span>정가 200원</span></div>
+                        </div>
+                    </div>
+                    <!-- 2페이지 -->
+                    <div class="slide-page">
+                        <div class="book-list">
+                            <div class="book-item"><div class="book-img"></div><p>추천도서 4</p><span>특가 200원</span></div>
+                            <div class="book-item"><div class="book-img"></div><p>추천도서 5</p><span>특가 200원</span></div>
+                            <div class="book-item"><div class="book-img"></div><p>추천도서 6</p><span>정가 200원</span></div>
+                        </div>
+                    </div>
+                    <!-- 3페이지 -->
+                    <div class="slide-page">
+                        <div class="book-list">
+                            <div class="book-item"><div class="book-img"></div><p>추천도서 7</p><span>특가 200원</span></div>
+                            <div class="book-item"><div class="book-img"></div><p>추천도서 8</p><span>특가 200원</span></div>
+                            <div class="book-item"><div class="book-img"></div><p>추천도서 9</p><span>정가 200원</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+
+        <!-- 카드 2: 도서관 공지사항 (슬라이더 적용) -->
+        <div class="card white-bg auto-slider" id="slider-notice">
+            <h2>도서관 공지사항</h2>
+            <div class="slider-container">
+                <div class="slider-track">
+                    <!-- 1페이지 -->
+                    <div class="slide-page">
+                        <ul class="text-list">
+                            <li>• 공지사항 1차 먼지 접...</li>
+                            <li>• 공지사항 언제 음영 전...</li>
+                            <li>• 도서관 공지시장 대함 언전</li>
+                            <li>• 도서관 공지시장 무네헤 상저...</li>
+                        </ul>
+                    </div>
+                    <!-- 2페이지 -->
+                    <div class="slide-page">
+                        <ul class="text-list">
+                            <li>• [안내] 주말 열람실 이용 시간 변경</li>
+                            <li>• [행사] 저자 초청 북콘서트 안내</li>
+                            <li>• [공지] 시스템 정기 점검 안내</li>
+                            <li>• [신간] 6월 사서 추천 도서 목록</li>
+                        </ul>
+                    </div>
+                    <!-- 3페이지 -->
+                    <div class="slide-page">
+                        <ul class="text-list">
+                            <li>• [이벤트] 독서 마일리지 적립 안내</li>
+                            <li>• [안내] 도서관 희망도서 신청 방법</li>
+                            <li>• 공지사항 마지막 페이지 내용 1</li>
+                            <li>• 공지사항 마지막 페이지 내용 2</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+
+        <!-- 카드 3: 이달의 행사안내 (고정 항목) -->
+        <div class="card">
+            <h2>이달의 행사안내</h2>
+            <ul class="event-list">
+                <li>
+                    <div class="event-date"><span class="year-month">2026</span><span class="day">11</span></div>
+                    <div class="event-title">전산의 서단<br>도사의 무리자 안내</div>
+                </li>
+                <li>
+                    <div class="event-date"><span class="year-month">2026</span><span class="day">12</span></div>
+                    <div class="event-title">이달의 행사안내</div>
+                </li>
+                <li>
+                    <div class="event-date"><span class="year-month">2026</span><span class="day">23</span></div>
+                    <div class="event-title">이달의 행사안내<br>표의의 안내</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 카드 4: 신착도서 (슬라이더 적용) -->
+        <div class="card auto-slider" id="slider-newbook">
+            <h2>신착도서</h2>
+            <div class="slider-container">
+                <div class="slider-track">
+                    <!-- 1페이지 -->
+                    <div class="slide-page">
+                        <div class="book-list">
+                            <div class="book-item"><div class="book-img"></div><p>신간책 1</p></div>
+                            <div class="book-item"><div class="book-img"></div><p>신간책 2</p></div>
+                            <div class="book-item"><div class="book-img"></div><p>신간책 3</p></div>
+                        </div>
+                    </div>
+                    <!-- 2페이지 -->
+                    <div class="slide-page">
+                        <div class="book-list">
+                            <div class="book-item"><div class="book-img"></div><p>신간책 4</p></div>
+                            <div class="book-item"><div class="book-img"></div><p>신간책 5</p></div>
+                            <div class="book-item"><div class="book-img"></div><p>신간책 6</p></div>
+                        </div>
+                    </div>
+                    <!-- 3페이지 -->
+                    <div class="slide-page">
+                        <div class="book-list">
+                            <div class="book-item"><div class="book-img"></div><p>신간책 7</p></div>
+                            <div class="book-item"><div class="book-img"></div><p>신간책 8</p></div>
+                            <div class="book-item"><div class="book-img"></div><p>신간책 9</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-left">
+            <h3>그린도서관</h3>
+            <p>주소 소공도후장정제등 보장 EL59후-433 | 흔적 : 010-276-7890</p>
+            <p class="copyright">Copyright © 2022 BKS. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+            <div class="footer-links">
+                <a href="#">사이트지도</a> | <a href="#">그린웨이잉</a> | <a href="#">사이트페도</a>
+            </div>
+            <div class="footer-logo"></div>
+        </div>
+    </footer>
+
+    <!-- 자바스크립트 추가: 일정 시간마다 슬라이드 및 도트 연동 -->
+    <script>
+        function createAutoSlider(sliderId) {
+            const card = document.getElementById(sliderId);
+            if (!card) return;
+
+            const track = card.querySelector('.slider-track');
+            const dots = card.querySelectorAll('.dot');
+            let currentIndex = 0;
+            const totalSlides = 3; // 총 3페이지
+
+            function updateSlider(index) {
+                // 1페이지당 -33.333%씩 트랙을 이동시킴
+                track.style.transform = `translateX(-${index * 33.333}%)`;
+                
+                // 기존 활성화된 도트 클래스 제거 및 새 도트 활성화
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index].classList.add('active');
+            }
+
+            // 3초(3000ms)마다 인덱스를 순환시키며 슬라이드 실행
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlider(currentIndex);
+            }, 5000); 
+
+            // 사용자가 도트를 직접 클릭했을 때도 이동할 수 있도록 이벤트 추가
+            dots.forEach((dot, index) => {
+                dot.style.cursor = 'pointer';
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateSlider(currentIndex);
+                });
+            });
+        }
+
+        // 페이지 로드 시 각각의 카드에 슬라이더 기능 부여
+        window.addEventListener('DOMContentLoaded', () => {
+            createAutoSlider('slider-recommend'); // 추천도서
+            createAutoSlider('slider-notice');    // 공지사항
+            createAutoSlider('slider-newbook');   // 신착도서
+        });
+    </script>
+</body>
+</html>
